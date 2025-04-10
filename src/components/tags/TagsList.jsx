@@ -64,29 +64,84 @@ const Tags = () => {
   };
 
   return (
-    <div>
-      <h2>Tags</h2>
+    <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px', fontFamily: 'Arial, sans-serif'}}>
+      <h2 style={{textAlign: 'center', color: '#333'}}>Tags</h2>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={tagName}
-          onChange={(e) => setTagName(e.target.value)}
-        />
-        <button type="submit">
-          {editingTagId ? 'Update Tag' : 'Add Tag'}
+      <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+  <input
+    type="text"
+    value={tagName}
+    onChange={(e) => setTagName(e.target.value)}
+    placeholder="Enter tag name"
+    style={{
+      flex: 1,
+      padding: '8px',
+      border: '1px solid #ccc',
+      borderRadius: '4px'
+    }}
+  />
+  <button
+    type="submit"
+    style={{
+      padding: '8px 16px',
+      backgroundColor: editingTagId ? '#FFA500' : '#28a745',
+      color: 'white',
+      border: 'none',
+      borderRadius: '4px',
+      cursor: 'pointer'
+    }}
+  >
+    {editingTagId ? 'Update Tag' : 'Add Tag'}
+  </button>
+</form>
+
+
+<ul style={{ listStyle: 'none', padding: 0 }}>
+  {tags.map(tag => (
+    <li key={tag.id} style={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: '10px',
+      marginBottom: '8px',
+      backgroundColor: '#',
+      borderRadius: '6px'
+    }}>
+      <span>#{tag.name}</span>
+      <div>
+        <button
+          onClick={() => handleEdit(tag)}
+          style={{
+            marginRight: '8px',
+            padding: '6px 10px',
+            backgroundColor: '#007bff',
+            color: 'white',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer'
+          }}
+        >
+          Edit
         </button>
-      </form>
+        <button
+          onClick={() => handleDelete(tag.id)}
+          style={{
+            padding: '6px 10px',
+            backgroundColor: '#dc3545',
+            color: 'white',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer'
+          }}
+        >
+          Delete
+        </button>
+      </div>
+    </li>
+  ))}
+</ul>
 
-      <ul>
-        {tags.map(tag => (
-          <li key={tag.id}>
-            {tag.name}
-            <button onClick={() => handleEdit(tag)}>Edit</button>
-            <button onClick={() => handleDelete(tag.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+
     </div>
   );
 };

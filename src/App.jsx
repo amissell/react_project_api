@@ -1,20 +1,23 @@
-import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-import './App.css'
-import Tags from "./components/tags/TagsList"
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import './App.css';
+import Tags from './components/tags/TagsList';
+import Home from './pages/Home';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div className="App">
-        <h1>welcome to e-learning platform</h1>
-        <Tags />
-      </div>
-    </>
-  )
+    <Router>
+      <nav style={{ padding: '10px', backgroundColor: '#f0f0f0' }}>
+        <Link to="/" style={{ marginRight: '10px' }}>Home</Link>
+        <Link to="/tags">Tags</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/tags" element={<Tags />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
