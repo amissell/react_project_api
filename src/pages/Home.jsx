@@ -1,35 +1,37 @@
-// pages/Home.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
     <div style={{
-      minHeight: '100vh',
+      // minHeight: '100vh',
+      width: '100vh',
+      height: '100vh',
+      background: 'linear-gradient(135deg, #e8f0fe, #ffffff)',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      background: 'linear-gradient(to right, #f9f9f9, #e6f0ff)',
-      fontFamily: 'Arial, sans-serif',
-      padding: '20px',
+      fontFamily: 'Segoe UI, sans-serif',
+      // padding: '20px',
     }}>
       <h1 style={{
         fontSize: '3rem',
-        color: '#333',
-        marginBottom: '20px',
+        color: '#2c3e50',
+        marginBottom: '10px',
+        fontWeight: 'bold',
       }}>
-        Welcome to My Learning Platform
+        Welcome to LearnSpace 🌿
       </h1>
 
       <p style={{
         fontSize: '1.2rem',
-        color: '#666',
-        textAlign: 'center',
+        color: '#555',
         maxWidth: '600px',
-        marginBottom: '30px'
+        textAlign: 'center',
+        marginBottom: '40px'
       }}>
-        Explore tags or browse courses to start learning and organizing your content.
+        Organize your learning journey by exploring topics through tags or diving directly into our curated courses.
       </p>
 
       <div style={{
@@ -39,10 +41,10 @@ const Home = () => {
         justifyContent: 'center',
       }}>
         <Link to="/tags" style={buttonStyle}>
-          Go to Tags
+          🔖 Tags
         </Link>
         <Link to="/courses" style={buttonStyle}>
-          Browse Courses
+          📚 Courses
         </Link>
       </div>
     </div>
@@ -50,12 +52,14 @@ const Home = () => {
 };
 
 const buttonStyle = {
-  backgroundColor: '#007bff',
-  color: 'white',
-  padding: '12px 24px',
-  borderRadius: '8px',
+  backgroundColor: '#1e90ff',
+  color: '#fff',
+  padding: '14px 28px',
+  borderRadius: '10px',
   textDecoration: 'none',
   fontSize: '1rem',
+  fontWeight: '500',
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
   transition: 'background 0.3s ease',
 };
 
